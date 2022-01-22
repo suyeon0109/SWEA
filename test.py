@@ -1,1 +1,1 @@
-print('hello')
+print('사랑해'[0])
