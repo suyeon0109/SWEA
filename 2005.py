@@ -1,15 +1,22 @@
-n = int(input())
-for i in range(n):
-    list_p = {}
-    for j in range(1, int(input())):
-        if j == 1:
-            list_p[j]=1
-        for k in range(j):
-            if j == 2:
-                list_p[j][k] = 1
-            else:
-                try :
-                    list_p[j][k] = list_p[j-1][k-1]+list_p[j-1][k]
-                except:
-                    list_p[j][k] = 1
-        print(list_p[j])
+def split_p(string):
+    return list(map(int, string.split(' ')))
+
+def pascal(n):
+    if n == 1:
+        return '1'
+    elif n == 2:
+        return '1 1'
+    else:
+        s = '1 '
+        for i in range(1, n-1):
+            s += str(split_p(pascal(n-1))[i-1] + split_p(pascal(n-1))[i])
+            s += ' '
+        s += '1'
+        return s
+
+for case in range(int(input())):
+    print(f'#{case+1}')
+    for size in range(int(input())):
+        print(pascal(size+1))
+
+        
