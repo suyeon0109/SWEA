@@ -12,16 +12,17 @@ for i in range(T):
         dict_sum[j+1] = 35*mid/100 + 45*final/100 + 20*homework/100
     
     # 만들어진 딕셔너리를 value값 기준으로 정렬
-    # 정렬 후 key값을 순서대로 새로운 리스트에 추가
+    # 정렬 후 key값만 새로운 리스트에 추가
     list_sum = []
     d1 = sorted(dict_sum.items(), key = lambda x: x[1])
+    print(d1)
     for key, value in d1:
         list_sum.append(key)
 
-    # 백분율 s 계산
+    # 백분율 s 계산(특정학생/전체학생수)
     s = (list_sum.index(K)+1)/N*100
     
-    list_s=['D0','C-','C0','C+','B-','B0','B+','A-','A0','A+']
+    list_s = ['D0','C-','C0','C+','B-','B0','B+','A-','A0','A+']
 
     if int(str(s)[1]) == 0:                         # 백분율의 1의자리수가 0일때. ex)90,80,,,
         print(f'#{i+1} {list_s[int(str(s)[0])-1]}')

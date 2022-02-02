@@ -1,8 +1,9 @@
 for i in range(int(input())):
+    num = int(input())
     k = list(map(int, input().split()))
     dict_a = {}
 
-    for i in k:
-        dict_a.setdefault(i,k.count(i))
+    for j in k:
+            dict_a[j]=k.count(j)
     
-    print(max(dict_a))
+    print(f'#{i+1}',max(zip(dict(dict_a).values(), dict(dict_a).keys()))[0])
