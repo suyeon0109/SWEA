@@ -15,3 +15,4 @@ for i in range(int(input())):
             max_s = s
     
     print(f'#{i+1}',max_s)
+

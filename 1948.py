@@ -12,3 +12,4 @@ for i in range(int(input())):
             s += d1[j]
         print(f'#{i+1}', s)
         
+
