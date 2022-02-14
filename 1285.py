@@ -7,6 +7,7 @@ for i in range(int(input())):
     
     a = min(zip(dict(dict_l).values(), dict(dict_l).keys()))[0]
     count = 0
+    
     for k in dict_l:
         if dict_l[k]==a:
             count += 1

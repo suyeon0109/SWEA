@@ -1,4 +1,3 @@
-
 for tc in range(int(input())):
     sudoku=[]
     for _ in range(9):

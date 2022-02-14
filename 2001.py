@@ -1,22 +1,15 @@
-n = int(input())
-sum_flies = 0
-list_flies=[]
+for i in range(int(input())):
+    a, b = map(int, input().split())
+    la=[list(map(int, input().split())) for _ in range(a)]
 
-flies_n,kill_n = map(int, input().split())
-for w in range(n):
-    for i in range(flies_n):
-        list_flies.append(list(map(int, input().split())))
-
-    for k in range(len(list_flies)):
-        for m in range(len(list_flies)):
-            try:
-                s = 0
-                for i in range(kill_n):
-                    for j in range(kill_n):
-                        s += list_flies[i+k][j+m]
-                        print(s)
-                if sum_flies < s :
-                    sum_flies = s
-            except:
-                pass
-    print(f'#{w+1} ', sum_flies)
+    max_s = 0
+    for x in range(a-b+1):
+        for y in range(a-b+1):
+            s = 0
+            for k in range(b):
+                for l in range(b):
+                    s += la[x+k][y+l]
+            if s > max_s:
+                max_s = s
+    
+    print(f'#{i+1}',max_s)
