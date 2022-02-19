@@ -1,29 +1,19 @@
-for i in range(int(input())):
+for tc in range(int(input())):
     N, K = map(int, input().split())
-    la = []
-    for j in range(N):
-        la.append(list(map(int, input().split())))
-    
-    # 가로
+    la = [[0] * (N+2)] + [[0] + list(map(int, input().split())) + [0] for _ in range(N)] + [[0] * (N+2)]
     cnt = 0
-    for k in la:
-        for m in range(N-K+1):
-            if k[m] == k[m+1] == k[m+2] == 1:
-                if m-1 <0:
-                    try:
-                        if k[m+3] == 0:
-                            cnt += 1
-                    except:
-                        cnt += 1
-                else:
-                    if k[m-1] == 0:
-                        try:
-                            if k[m+3] == 0:
-                                cnt += 1
-                        except:
-                            cnt += 1
+    # 가로
+    for i in range(1,N+1):
+        for j in range(1,N-K+2):
+            if 0 not in la[i][j:j+K] and la[i][j+K] == 0 and la[i][j-1] == 0:
+                cnt += 1
     
+    # 세로
+    for c in range(1,N+1):
+        lb = [la[r][c] for r in range(N+2)]
+        for p in range(1,N-K+2):
+            if 0 not in lb[p:p+K] and lb[p+K] == 0 and lb[p-1] == 0:
+                cnt += 1
 
-    
-    for
-    print(cnt)
+
+    print(f'#{tc+1}', cnt)

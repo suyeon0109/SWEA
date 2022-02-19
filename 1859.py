@@ -1,7 +1,7 @@
 # 이익 함수 생성.
 def revenue(b):
-    b_n=b[:b.index(max(b))+1]
-    a=b_n[-1]*(len(b_n)-1)-sum(b_n[:-1])
+    b_n = b[:b.index(max(b))+1]
+    a = b_n[-1]*(len(b_n)-1)-sum(b_n[:-1])
     del b[:b.index(max(b))+1]
     return a
     
@@ -19,15 +19,15 @@ n=int(input())
 for i in range(n):
 
     # 매매가 개수(m) 입력
-    m=int(input())
+    m = int(input())
 
     # 매매가 리스트(b) 입력, 이익을 더할 빈 리스트(r) 생성
-    b=list(map(int,input().split()))
-    r=[]
+    b = list(map(int,input().split()))
+    r = []
 
     # 함수 호출. 리스트 b가 []가 될때 까지 함수를 반복하게 되면
     # 이익 a들이 빈 리스트 r에 추가된다.
-    while b !=[]:
+    while b == True:
         r.append(revenue(b))
     
     # 리스트 r에 추가된 이익들을 합하면 총 이익이 계산.
